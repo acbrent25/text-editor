@@ -25,10 +25,28 @@ $(document).ready(function(){
         // get text from text area
         let textToFormat = $("#text-edit-area").val();
         // format the text and set new variable
-        let formattedText = textToFormat.replace(new RegExp('-', 'g')," ")
+        let formattedText = textToFormat.replace(new RegExp('-', 'g')," ");
         // replace text for copying
         $("#text-edit-area").val(formattedText);
     });
+
+    // Title Case
+    $("#title-case").on('click', function(){
+        // get text from text area
+        let textToFormat = $("#text-edit-area").val();
+        // format the text and set new variable
+        let formattedText = toTitleCase(textToFormat);
+        // replace text for copying
+        $("#text-edit-area").val(formattedText);
+    });
+
+
+    // To Title Case
+    function toTitleCase(str) {
+        return str.replace(/(?:^|\s)\w/g, function(match) {
+            return match.toUpperCase();
+        });
+    }
 
 
     
